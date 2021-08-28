@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+VERSION="0.1"
+AUTHOR="Frederico Sales"
+DATA="28/08/2021"
+EMAIL="frederico.sales@uab.ufjf.br"
+SNAM=$(basename "$0").
+VERSION="
+$SNAM version: $VERSION - $DATA
+  environment: CEAD - UFJF
+---------------
+$AUTHOR
+$EMAIL
+
+"
+USAGE="
+           __
+      w  c(..)o   (
+       \__(-)    __)
+           /\   ( 
+          /(_)___) 
+          w /| 
+           | \
+          m  m
+
+Usage: $SNAM [OPTIONS] [OSTYPE]
+       $NAM [-c] [-d]
+
+Options:
+    -h      - display this help
+    -c      - use docker build  to build the image
+    -d		- use docker-compose to build the swarm
+
+ Author: $AUTHOR
+ E-mail: $EMAIL
+Version: $VERSION - $DATA
+
+"
+
+ARGS=$(echo "$1" | awk '{print tolower($0)}')
+
+case $ARGS in:	
+	-h)
+		clear;
+		printf "USAGE";
+	
+	-d)
+		clear;
+		echo "Building the service";
+		docker build -t satangos/moodle:raw .;
+		;;
+
+	-c)
+		clear;
+		echo "Building the service";
+		docker-compose build .;
+		;;
+	*)
+		clear;
+		printf "USAGE";
+		;;
+esac

@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - /srv/postgres/data:/var/lib/postgresql/data
+      - /srv/postgres/conf:/etc/postgresql
+    environment:
+      - POSTGRES_DB=moodle
+      - POSTGRES_USER=moodle
+      - POSTGRES_PASSWORD=D2a0e0n2#
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    command: etc/init.d/apache2 start
+    volumes:
+      - /srv/moodle:/var/www/html/moodle
+    environment:
+      - EDITOR=vim
+      - VISUAL=vim
+    ports:
+      - "9090:80"
