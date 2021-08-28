@@ -9,7 +9,7 @@ services:
     environment:
       - POSTGRES_DB=moodle
       - POSTGRES_USER=moodle
-      - POSTGRES_PASSWORD=D2a0e0n2#
+      - POSTGRES_PASSWORD=SenhaSuperSecretaPraChuchu#Vei
     ports:
       - "5432:5432"
   web:
