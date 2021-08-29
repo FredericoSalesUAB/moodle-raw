@@ -5,31 +5,32 @@ AUTHOR="Frederico Sales"
 DATA="28/08/2021"
 EMAIL="frederico.sales@uab.ufjf.br"
 SNAM=$(basename "$0").
-VERSION="
+__VERSION__="
 $SNAM version: $VERSION - $DATA
   environment: CEAD - UFJF
 ---------------
-$AUTHOR
-$EMAIL
+ Author: $AUTHOR
+ E-mail: $EMAIL
 
 "
-USAGE="
+__USAGE__="
            __
       w  c(..)o   (
        \__(-)    __)
            /\   ( 
           /(_)___) 
           w /| 
-           | \
+           | \\
           m  m
 
-Usage: $SNAM [OPTIONS] [OSTYPE]
-       $NAM [-c] [-d]
+Usage: $SNAM [OPTIONS]
+       $SNAM [-c] [-d]
 
 Options:
-    -h      - display this help
-    -c      - use docker build  to build the image
-    -d		- use docker-compose to build the swarm
+	-h	- display this help
+	-c	- use docker build  to build the image.
+	-d	- use docker-compose to build the swarm.
+	-v	- show the version.
 
  Author: $AUTHOR
  E-mail: $EMAIL
@@ -39,10 +40,16 @@ Version: $VERSION - $DATA
 
 ARGS=$(echo "$1" | awk '{print tolower($0)}')
 
-case $ARGS in:	
+case $ARGS in
 	-h)
 		clear;
-		printf "USAGE";
+		printf "$__USAGE__";
+		;;
+
+	-v)
+		clear;
+		printf "$__VERSION__";
+		;;
 	
 	-d)
 		clear;
@@ -57,6 +64,6 @@ case $ARGS in:
 		;;
 	*)
 		clear;
-		printf "USAGE";
+		printf "$__USAGE__";
 		;;
 esac
