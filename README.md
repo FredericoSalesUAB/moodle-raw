@@ -1,4 +1,4 @@
-## Moodle 3.10.6 docker raw imag
+## Moodle 3.10.6 docker raw image
 ---
 
 #### Frederico Sales <frederico.sales@uab.ufjf.br>
